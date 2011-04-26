@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #include <time.h>
 
-#define THING_SPEED 100
+#define THING_SPEED 300
 
 CGFloat CurrentTime();
 

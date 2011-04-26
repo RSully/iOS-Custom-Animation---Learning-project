@@ -7,12 +7,13 @@
 //
 
 #import "CLGameArea.h"
+#import "CLMainViewController.h"
 
 
 @implementation CLGameArea
 
 
-- (id)initWithFrame:(CGRect)frame {
+- (id)initWithFrame:(CGRect)frame level:(NSDictionary*)lvl {
     self = [super initWithFrame:frame];
     if (self) {
 		self.userInteractionEnabled = YES;
@@ -20,13 +21,10 @@
 		self.backgroundColor = [UIColor greenColor];
 		
 		refresher = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(didTick:) userInfo:nil repeats:YES];
+		walls = [[NSMutableArray alloc] init];
+		enemies = [[NSMutableArray alloc] init];
 		
-		end = [[CLFinish alloc] initWithFrame:CGRectMake(0, self.frame.size.height-50, self.frame.size.width, 50)];
-		[self addSubview:end];
-		
-        me = [[CLPlayer alloc] initWithFrame:CGRectMake(30, 30, PLAYER_SIZE, PLAYER_SIZE)];
-		[self addSubview:me];
-		
+		[self loadLevel:lvl];
 		
 		UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
 		[self addGestureRecognizer:ges];
@@ -34,6 +32,48 @@
     }
     return self;
 }
+
+-(void)loadLevel:(NSDictionary*)lvl {
+	NSLog(@"Loading level: %@", lvl);
+	
+	// start, end, obs
+	NSArray *startInfo = [lvl objectForKey:@"start"];
+	NSArray *endInfo = [lvl objectForKey:@"end"];
+	NSArray *obsInfo = [lvl objectForKey:@"obs"];
+	
+	
+	end = [[CLFinish alloc] initWithFrame:CGRectMake([[endInfo objectAtIndex:0] floatValue], 
+													 [[endInfo objectAtIndex:1] floatValue], 
+													 [[endInfo objectAtIndex:2] floatValue], 
+													 [[endInfo objectAtIndex:3] floatValue])];
+	[self addSubview:end];
+	
+	me = [[CLPlayer alloc] initWithFrame:CGRectMake([[startInfo objectAtIndex:0] floatValue],
+													[[startInfo objectAtIndex:1] floatValue],
+													PLAYER_SIZE, PLAYER_SIZE)];
+	[self addSubview:me];
+	
+	for (NSDictionary *obs in obsInfo) {
+		NSString *type = [obs objectForKey:@"type"];
+		NSArray *rects = [obs objectForKey:@"rect"];
+		CGRect rec = CGRectMake([[rects objectAtIndex:0] floatValue], 
+								[[rects objectAtIndex:1] floatValue], 
+								[[rects objectAtIndex:2] floatValue], 
+								[[rects objectAtIndex:3] floatValue]);
+		
+		CLObs *obj = nil;
+		if ([type isEqualToString:@"wall"]) {
+			obj = [[CLObsWall alloc] initWithFrame:rec];
+			[walls addObject:obj];
+		} else if ([type isEqualToString:@"enemy"]) {
+			obj = [[CLObsEnemy alloc] initWithFrame:rec];
+			[enemies addObject:obj];
+		}
+		[self addSubview:obj];
+		[obj release];
+	}
+}	
+
 
 -(void)didTap:(UITapGestureRecognizer*)ges {
 	if (ges.state == UIGestureRecognizerStateEnded) {
@@ -48,6 +88,7 @@
 -(void)didTick:(id)sender {
 	[self handlePlayerMove];
 	[self checkPlayerFinished];
+	[self checkPlayerWalls];
 }
 
 -(void)handlePlayerMove {
@@ -65,7 +106,7 @@
 		
 	CGFloat totalDistance = DistanceBetweenTwoPoints(beginPoint, endPoint);
 	CGFloat totalDuration = DurationForDistance(totalDistance);
-	NSLog(@"START: %f -Diff: %f", startTime, timeDiff);
+	//NSLog(@"START: %f -Diff: %f", startTime, timeDiff);
 	
 	CGFloat mRise = (endPoint.y-beginPoint.y);
 	CGFloat mRun = (endPoint.x-beginPoint.x);
@@ -86,20 +127,29 @@
 	CGRect curRect = me.frame;
 	
 	if (CGRectContainsRect(finishRect, curRect)) {
-		[refresher invalidate];
-		UIAlertView *hai = [[UIAlertView alloc] initWithTitle:@"Bitch, this took fucking forever. You just beat it." message:@"I hate you." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-		[hai show];
-		[hai release];
+		[self didWin];
+	}
+}
+-(void)checkPlayerWalls {
+	CGRect player = me.frame;
+	
+	for (CLObs *wall in walls) {
+		
 	}
 }
 
 
+-(void)didWin {
+	[refresher invalidate];
+	[(CLMainViewController*)vc nextLevel];
+}
 
-
-
+-(void)setVC:(UIViewController*)newvc { vc = newvc; }
 
 - (void)dealloc {
 	[me release];
+	[walls release];
+	[enemies release];
     [super dealloc];
 }
 

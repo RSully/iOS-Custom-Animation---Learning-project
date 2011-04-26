@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "CLGameArea.h"
-
+#import "CLLevelManager.h"
 
 @interface CLMainViewController : UIViewController {
+	CLLevelManager *lvlMgr;
 	CLGameArea *game;
 }
+
+-(void)loadLevel;
+-(void)nextLevel;
 
 @end

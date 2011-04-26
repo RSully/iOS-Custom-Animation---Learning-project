@@ -14,18 +14,42 @@
 -(id)init {
 	self = [super init];
 	if (self) {
-		game = [[CLGameArea alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+		lvlMgr = [[CLLevelManager alloc] init];
+		[self loadLevel];
 		self.view.userInteractionEnabled = YES;
-		[self.view addSubview:game];
 	}
 	return self;
 }
 
 
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-//- (void)loadView {
-//}
+-(void)loadLevel {
+	if (game) {
+		[game removeFromSuperview];
+		[game release], game = nil;
+	}
+	NSUInteger level = [lvlMgr level];
+	NSDictionary *jsonObj = [lvlMgr objectForLevel:level];
+	game = [[CLGameArea alloc] initWithFrame:CGRectMake(0, 0, 320, 460) level:jsonObj];
+	[game setVC:self];
+	[self.view addSubview:game];
+}
 
+-(void)nextLevel {
+	NSUInteger levelAmount = [lvlMgr levelAmount];
+	NSUInteger nextLevel = [lvlMgr level]+1;
+	if (nextLevel < levelAmount) {
+		UIAlertView *nextNom = [[UIAlertView alloc] initWithTitle:@"Next level!" message:@"You haz won this level!" delegate:nil cancelButtonTitle:@"Next level" otherButtonTitles:nil];
+		[nextNom show];
+		[nextNom release];
+		
+		[lvlMgr setLevel:nextLevel];
+		[self loadLevel];
+	} else {
+		UIAlertView *winning = [[UIAlertView alloc] initWithTitle:@"WINNER" message:@"Charlie Sheen would be proud" delegate:nil cancelButtonTitle:@"OMG" otherButtonTitles:nil];
+		[winning show];
+		[winning release];
+	}
+}
 
 /*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -34,30 +58,19 @@
 }
 */
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations.
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc. that aren't in use.
 }
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
 	[game release];
+	[lvlMgr release];
     [super dealloc];
 }
 
