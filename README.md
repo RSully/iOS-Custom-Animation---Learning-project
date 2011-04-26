@@ -1,3 +1,5 @@
+Custom animation via tap-events. iOS project. 
+
 ## Idea
 
 The point of this project is to show an iPhone application with a relatively simple concept be built and work, from day 1 to app-store ready.
