@@ -16,6 +16,14 @@ $levels[] = array(
 						array(
 							'type' => 'wall',
 							'rect' => array(0, 0, 10, 460)
+						),
+						array(
+							'type' => 'wall',
+							'rect' => array(0, 250, 150, 10)
+						),
+						array(
+							'type' => 'wall',
+							'rect' => array(200, 0, 10, 100)
 						)
 					)
 			);
