@@ -12,11 +12,15 @@
 @interface CLPlayer : UIView {
 	CGPoint beginPoint;
 	CGPoint gotoPoint;
+	CGPoint lastPoint;
+	CGRect lastFrame;
 	NSDate *beginStart;
 }
 
 @property (nonatomic, assign) CGPoint beginPoint;
 @property (nonatomic, assign) CGPoint gotoPoint;
+@property (nonatomic, assign) CGPoint lastPoint;
+@property (nonatomic, assign) CGRect lastFrame;
 @property (nonatomic, retain) NSDate *beginStart;
 
 @end

@@ -10,7 +10,7 @@
 
 
 @implementation CLPlayer
-@synthesize gotoPoint, beginStart, beginPoint;
+@synthesize gotoPoint, beginStart, beginPoint, lastPoint, lastFrame;
 
 - (id)initWithFrame:(CGRect)frame {
     

@@ -103,7 +103,7 @@
 	NSDate *startTime = me.beginStart;
 	NSTimeInterval timePassed_ms = [startTime timeIntervalSinceNow] * -1000.0;
 	CGFloat timeDiff = timePassed_ms/1000;
-		
+	
 	CGFloat totalDistance = DistanceBetweenTwoPoints(beginPoint, endPoint);
 	CGFloat totalDuration = DurationForDistance(totalDistance);
 	//NSLog(@"START: %f -Diff: %f", startTime, timeDiff);
@@ -120,6 +120,8 @@
 		newPoint = endPoint;
 	}
 	
+	me.lastPoint = me.center;
+	me.lastFrame = me.frame;
 	me.center = newPoint;
 }
 -(void)checkPlayerFinished {
@@ -132,9 +134,37 @@
 }
 -(void)checkPlayerWalls {
 	CGRect player = me.frame;
-	
+	//CGRectIntersection, CGRectIntersectsRect
 	for (CLObs *wall in walls) {
-		
+		CGRect intersection = CGRectIntersection(player, wall.frame);
+		if (!CGRectIsNull(intersection)) {
+			//NSLog(@"Intersects %@", NSStringFromCGRect(intersection));
+			ObsPosition *pos = RelPositionOfPlayer(me.lastFrame, wall.frame);
+			CGRect newPlayer = player;
+			//CGPoint newLastPoint = me.gotoPoint;
+			if (ObsEqual(pos, ObsRight)) {
+				NSLog(@"right");
+				newPlayer.origin.x = wall.frame.origin.x + wall.frame.size.width + 1;
+				//newLastPoint.x = newPlayer.origin.x+(PLAYER_SIZE/2);
+			}
+			if (ObsEqual(pos, ObsLeft)) {
+				NSLog(@"left");
+				newPlayer.origin.x = wall.frame.origin.x - newPlayer.size.width - 1;
+				//newLastPoint.x = newPlayer.origin.x+(PLAYER_SIZE/2);
+			}
+			if (ObsEqual(pos, ObsTop)) {
+				NSLog(@"top");
+				newPlayer.origin.y = wall.frame.origin.y - newPlayer.size.height - 1;
+				//newLastPoint.y = newPlayer.origin.y+(PLAYER_SIZE/2);
+			}
+			if (ObsEqual(pos, ObsBottom)) {
+				NSLog(@"botom");
+				newPlayer.origin.y = wall.frame.origin.y + wall.frame.size.height + 1;
+				//newLastPoint.y = newPlayer.origin.y+(PLAYER_SIZE/2);
+			}
+			me.frame = newPlayer;
+			//me.gotoPoint = newLastPoint;
+		}
 	}
 }
 

@@ -8,6 +8,22 @@
 
 #import "CLFunctions.h"
 
+ObsPosition* RelPositionOfPlayer(CGRect player, CGRect obs) {
+	if ((player.origin.y + player.size.height) < obs.origin.y) {
+		return ObsTop;
+	}
+	if ((player.origin.x + player.size.width) < obs.origin.x) {
+		return ObsLeft;
+	}
+	if (player.origin.x > (obs.origin.x + obs.size.width)) {
+		return ObsRight;
+	}
+	if (player.origin.y > (obs.origin.y + obs.size.height)) {
+		return ObsBottom;
+	}
+	return nil;
+}
+
 CGFloat CurrentTime() {
 	//#define CUR_TIME (clock() / (CLOCKS_PER_SEC / 1000))
 	return (CGFloat)(clock() / (CLOCKS_PER_SEC / 1000));
