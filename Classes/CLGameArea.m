@@ -9,6 +9,10 @@
 #import "CLGameArea.h"
 #import "CLMainViewController.h"
 
+//@interface CLGameArea (Private)
+//-(BOOL)checkPointIntersects:(CGPoint)p;
+//@end
+
 
 @implementation CLGameArea
 
@@ -114,7 +118,8 @@
 	CGFloat moveY = (timeDiff/totalDuration)*mRise;
 	CGFloat moveX = (timeDiff/totalDuration)*mRun;
 	
-	newPoint = CGPointMake(beginPoint.x+moveX, beginPoint.y+moveY);
+	newPoint = CGPointMake(round(beginPoint.x+moveX), round(beginPoint.y+moveY));
+    
 	CGFloat newDistance = DistanceBetweenTwoPoints(beginPoint, newPoint);
 	if (newDistance >= totalDistance) {
 		newPoint = endPoint;
@@ -124,6 +129,16 @@
 	me.lastFrame = me.frame;
 	me.center = newPoint;
 }
+//-(BOOL)checkPointIntersects:(CGPoint)p {
+//    CGRect pRect = CGRectMake(p.x-(PLAYER_SIZE/2), p.y-(PLAYER_SIZE/2), PLAYER_SIZE, PLAYER_SIZE);
+//    for (CLObs *wall in walls) {
+//        if (!CGRectIsNull(CGRectIntersection(pRect, wall.frame))) {
+//            return YES;
+//        }
+//    }
+//    return NO;
+//}
+
 -(void)checkPlayerFinished {
 	CGRect finishRect = end.frame;
 	CGRect curRect = me.frame;
@@ -138,32 +153,29 @@
 	for (CLObs *wall in walls) {
 		CGRect intersection = CGRectIntersection(player, wall.frame);
 		if (!CGRectIsNull(intersection)) {
-			//NSLog(@"Intersects %@", NSStringFromCGRect(intersection));
-			ObsPosition *pos = RelPositionOfPlayer(me.lastFrame, wall.frame);
+			
+            ObsPosition *pos = RelPositionOfPlayer(me.lastFrame, wall.frame);
 			CGRect newPlayer = player;
-			//CGPoint newLastPoint = me.gotoPoint;
 			if (ObsEqual(pos, ObsRight)) {
-				NSLog(@"right");
 				newPlayer.origin.x = wall.frame.origin.x + wall.frame.size.width + 1;
-				//newLastPoint.x = newPlayer.origin.x+(PLAYER_SIZE/2);
 			}
 			if (ObsEqual(pos, ObsLeft)) {
-				NSLog(@"left");
 				newPlayer.origin.x = wall.frame.origin.x - newPlayer.size.width - 1;
-				//newLastPoint.x = newPlayer.origin.x+(PLAYER_SIZE/2);
 			}
 			if (ObsEqual(pos, ObsTop)) {
-				NSLog(@"top");
 				newPlayer.origin.y = wall.frame.origin.y - newPlayer.size.height - 1;
-				//newLastPoint.y = newPlayer.origin.y+(PLAYER_SIZE/2);
 			}
 			if (ObsEqual(pos, ObsBottom)) {
-				NSLog(@"botom");
 				newPlayer.origin.y = wall.frame.origin.y + wall.frame.size.height + 1;
-				//newLastPoint.y = newPlayer.origin.y+(PLAYER_SIZE/2);
 			}
 			me.frame = newPlayer;
-			//me.gotoPoint = newLastPoint;
+            
+            // If we "start" from where we are,
+            //  it sortof hacks the duration so that
+            //  so it doesn't skip a wall by thinking
+            //  it's too far in time and is past it
+            me.beginStart = [NSDate date];
+            me.beginPoint = me.center;
 		}
 	}
 }
