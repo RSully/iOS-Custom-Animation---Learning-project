@@ -43,11 +43,14 @@
 		[nextNom release];
 		
 		[lvlMgr setLevel:nextLevel];
+		[lvlMgr saveGame];
 		[self loadLevel];
 	} else {
 		UIAlertView *winning = [[UIAlertView alloc] initWithTitle:@"WINNER" message:@"Charlie Sheen would be proud" delegate:nil cancelButtonTitle:@"OMG" otherButtonTitles:nil];
 		[winning show];
 		[winning release];
+		
+		[lvlMgr setLevel:0];
 	}
 }
 

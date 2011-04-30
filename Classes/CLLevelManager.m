@@ -14,11 +14,12 @@
 -(id)init {
 	self = [super init];
 	if (self) {
-		level = [[NSNumber alloc] initWithInt:0];
 		
-		if ([[NSUserDefaults standardUserDefaults] objectForKey:@"level"]) {
-			level = [[[NSUserDefaults standardUserDefaults] objectForKey:@"level"] retain];
-		}
+		//if ([[NSUserDefaults standardUserDefaults] objectForKey:@"level"]) {
+		//	level = [[[NSUserDefaults standardUserDefaults] objectForKey:@"level"] retain];
+		//} else {
+			level = [[NSNumber alloc] initWithInt:4];
+		//}
 		
 		NSString *path = [[NSBundle mainBundle] pathForResource:@"levels" ofType:@"txt"];
 		levels = [[[NSString stringWithContentsOfFile:path encoding:NSStringEncodingConversionAllowLossy error:nil] JSONValue] retain];
@@ -41,6 +42,7 @@
 }
 -(NSUInteger)level { return [level unsignedIntValue]; }
 -(NSNumber*)levelObj { return level; }
+
 
 -(void)dealloc {
 	[level release];

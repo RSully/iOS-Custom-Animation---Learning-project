@@ -14,6 +14,8 @@
 	CLMainViewController *mainVC;
 }
 
+-(void)statusBarTapped;
+
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 
 @end

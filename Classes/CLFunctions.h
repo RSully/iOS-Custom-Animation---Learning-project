@@ -9,7 +9,12 @@
 #import <UIKit/UIKit.h>
 #include <time.h>
 
-#define THING_SPEED 300
+#define PLAYER_SPEED 300
+#define ENEMY_SPEED 250
+
+#define PLAYER_SIZE 34
+#define ENEMY_SIZE 28
+#define COIN_SIZE 22
 
 #define ObsPosition NSString
 #define ObsEqual(a,b) [a isEqualToString:b]
@@ -20,8 +25,8 @@
 
 ObsPosition* RelPositionOfPlayer(CGRect player, CGRect obs);
 
-CGFloat CurrentTime();
-
 CGFloat SlopeBetweenTwoPoints(CGPoint p1, CGPoint p2);
 CGFloat DistanceBetweenTwoPoints(CGPoint point1, CGPoint point2);
-CGFloat DurationForDistance(CGFloat dist);
+
+CGFloat DurationForPlayerDistance(CGFloat dist);
+CGFloat DurationForEnemyDistance(CGFloat dist);

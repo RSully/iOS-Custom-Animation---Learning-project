@@ -24,11 +24,6 @@ ObsPosition* RelPositionOfPlayer(CGRect player, CGRect obs) {
 	return nil;
 }
 
-CGFloat CurrentTime() {
-	//#define CUR_TIME (clock() / (CLOCKS_PER_SEC / 1000))
-	return (CGFloat)(clock() / (CLOCKS_PER_SEC / 1000));
-}
-
 CGFloat SlopeBetweenTwoPoints(CGPoint p1, CGPoint p2) {
 	return ((p1.y-p2.y)/(p1.x-p2.x));
 }
@@ -40,10 +35,20 @@ CGFloat DistanceBetweenTwoPoints(CGPoint point1,CGPoint point2) {
 BOOL CLPointsFuckingEqual(CGPoint p1, CGPoint p2) {
 	return ((p1.x==p2.x)&&(p1.y==p2.y));
 }
-CGFloat DurationForDistance(CGFloat dist) {
+
+CGFloat DurationForPlayerDistance(CGFloat dist) {
 	// SPEED_THING
 	// pixels per second
 	// duration = distance/speed
-	return dist/(THING_SPEED);
+	return dist/PLAYER_SPEED;
+}
+CGFloat DurationForEnemyDistance(CGFloat dist) {
+	return dist/ENEMY_SPEED;
 }
 
+
+
+//CGFloat CurrentTime() {
+//	//#define CUR_TIME (clock() / (CLOCKS_PER_SEC / 1000))
+//	return (CGFloat)(clock() / (CLOCKS_PER_SEC / 1000));
+//}

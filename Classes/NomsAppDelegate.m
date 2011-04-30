@@ -23,6 +23,9 @@
     return YES;
 }
 
+-(void)statusBarTapped {
+	NSLog(@"TAP");
+}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     /*

@@ -10,10 +10,16 @@
 
 
 @implementation CLObsEnemy
+@synthesize direction, startPoint, endPoint, beginStart;
 
--(id)initWithFrame:(CGRect)frame {
-	self = [super initWithFrame:frame];
+
+-(id)initWithStart:(CGPoint)sp end:(CGPoint)ep {
+	self = [super initWithFrame:CGRectMake(sp.x-(ENEMY_SIZE/2), sp.y-(ENEMY_SIZE/2), ENEMY_SIZE, ENEMY_SIZE)];
 	if (self) {
+		startPoint = sp;
+		endPoint = ep;
+		direction = 0;
+		self.beginStart = [NSDate date];
 		self.backgroundColor = [UIColor orangeColor];
 	}
 	return self;

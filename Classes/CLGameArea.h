@@ -14,15 +14,16 @@
 #import "CLObs.h"
 #import "CLObsWall.h"
 #import "CLObsEnemy.h"
-
-#define PLAYER_SIZE 35
+#import "CLObsCoin.h"
 
 
 @interface CLGameArea : UIView {
+	CGRect initPlayerFrame;
 	CLPlayer *me;
 	CLFinish *end;
 	NSMutableArray *walls;
 	NSMutableArray *enemies;
+	NSMutableArray *coins;
 	
 	NSTimer *refresher;
 	UIViewController *vc;
@@ -32,10 +33,15 @@
 -(void)loadLevel:(NSDictionary*)lvl;
 
 -(void)handlePlayerMove;
+-(void)handleEnemiesMove;
+
 -(void)checkPlayerFinished;
+-(void)checkPlayerEnemies;
+-(void)checkPlayerCoins;
 -(void)checkPlayerWalls;
 
 -(void)didWin;
+-(void)didGetOwned;
 
 -(void)setVC:(UIViewController*)newvc;
 
