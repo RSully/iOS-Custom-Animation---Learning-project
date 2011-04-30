@@ -15,6 +15,9 @@
 	CLGameArea *game;
 }
 
+-(void)statusBarTapped;
+
+-(void)loadWelcome;
 -(void)loadLevel;
 -(void)nextLevel;
 

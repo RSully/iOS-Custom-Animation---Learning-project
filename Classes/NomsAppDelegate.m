@@ -29,7 +29,7 @@
 }
 
 -(void)statusBarTapped {
-	NSLog(@"TAP");
+	[mainVC statusBarTapped];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

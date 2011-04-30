@@ -9,13 +9,10 @@
 #import "CLGameArea.h"
 #import "CLMainViewController.h"
 
-//@interface CLGameArea (Private)
-//-(BOOL)checkPointIntersects:(CGPoint)p;
-//@end
 
 
 @implementation CLGameArea
-
+@synthesize paused, pausedWhen;
 
 - (id)initWithFrame:(CGRect)frame level:(NSDictionary*)lvl {
     self = [super initWithFrame:frame];
@@ -29,6 +26,7 @@
 		enemies = [[NSMutableArray alloc] init];
 		coins = [[NSMutableArray alloc] init];
 		
+        self.paused = NO;
 		[self loadLevel:lvl];
 		
 		UITapGestureRecognizer *ges = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
@@ -96,6 +94,7 @@
 
 
 -(void)didTap:(UITapGestureRecognizer*)ges {
+    if (self.paused == YES) { return; }
 	if (ges.state == UIGestureRecognizerStateEnded) {
 		CGPoint tap = [ges locationInView:self];
 		me.beginPoint = me.center;
@@ -291,6 +290,37 @@
 }
 
 -(void)setVC:(UIViewController*)newvc { vc = newvc; }
+
+-(void)pause {
+    if (refresher) {
+        self.pausedWhen = [NSDate date];
+        [refresher invalidate];
+        refresher = nil;
+    }
+    self.paused = YES;
+    [UIView animateWithDuration:0.4 animations:^{
+        self.backgroundColor = [UIColor colorWithRed:0.0f green:(230.0f/255.0f) blue:0.0f alpha:1.0];
+    }];
+}
+-(void)unpause {
+    if (refresher) { return; }
+    [UIView animateWithDuration:0.4 animations:^{
+        self.backgroundColor = [UIColor greenColor];
+    } completion:^(BOOL finished) {
+        
+        CGFloat tDiff = -[self.pausedWhen timeIntervalSinceNow];
+        for (CLObsEnemy *enemy in enemies) {
+            enemy.beginStart = [enemy.beginStart dateByAddingTimeInterval:tDiff];
+        }
+        // Me too, because we could be in the middle of moving
+        me.beginStart = [me.beginStart dateByAddingTimeInterval:tDiff];
+        
+        self.pausedWhen = nil;
+        self.paused = NO;
+        
+        refresher = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(didTick:) userInfo:nil repeats:YES];
+    }];
+}
 
 - (void)dealloc {
 	[me release];

@@ -15,12 +15,19 @@
 	self = [super init];
 	if (self) {
 		lvlMgr = [[CLLevelManager alloc] init];
+        [self loadWelcome];
 		[self loadLevel];
 		self.view.userInteractionEnabled = YES;
 	}
 	return self;
 }
 
+-(void)loadWelcome {
+    if (game) {
+        [game removeFromSuperview];
+        [game release], game = nil;
+    }
+}
 
 -(void)loadLevel {
 	if (game) {
@@ -61,9 +68,17 @@
 }
 */
 
-- (void)statusBarOverlayDidRecognizeGesture:(UIGestureRecognizer *)gestureRecognizer {
-    NSLog(@"Gesture: %@", gestureRecognizer);
+
+-(void)statusBarTapped {
+    if (game) {
+        if (game.paused) {
+            [game unpause];
+        } else {
+            [game pause];
+        }
+    }
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

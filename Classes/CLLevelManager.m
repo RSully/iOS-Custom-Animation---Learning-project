@@ -18,7 +18,7 @@
 		//if ([[NSUserDefaults standardUserDefaults] objectForKey:@"level"]) {
 		//	level = [[[NSUserDefaults standardUserDefaults] objectForKey:@"level"] retain];
 		//} else {
-			level = [[NSNumber alloc] initWithInt:4];
+			level = [[NSNumber alloc] initWithInt:0];
 		//}
 		
 		NSString *path = [[NSBundle mainBundle] pathForResource:@"levels" ofType:@"txt"];

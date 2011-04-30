@@ -27,7 +27,13 @@
 	
 	NSTimer *refresher;
 	UIViewController *vc;
+    
+    BOOL paused;
+    NSDate *pausedWhen;
 }
+
+-(void)pause;
+-(void)unpause;
 
 -(id)initWithFrame:(CGRect)frame level:(NSDictionary*)lvl;
 -(void)loadLevel:(NSDictionary*)lvl;
@@ -44,5 +50,8 @@
 -(void)didGetOwned;
 
 -(void)setVC:(UIViewController*)newvc;
+
+@property (nonatomic, retain) NSDate *pausedWhen;
+@property (nonatomic, assign) BOOL paused;
 
 @end
