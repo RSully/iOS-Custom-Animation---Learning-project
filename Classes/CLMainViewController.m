@@ -61,6 +61,9 @@
 }
 */
 
+- (void)statusBarOverlayDidRecognizeGesture:(UIGestureRecognizer *)gestureRecognizer {
+    NSLog(@"Gesture: %@", gestureRecognizer);
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

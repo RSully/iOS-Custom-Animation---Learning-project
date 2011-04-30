@@ -11,6 +11,7 @@
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
+		1F9CE32F136C598900C84255 /* MyWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9CE32E136C598900C84255 /* MyWindow.m */; };
 		288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765FC0DF74451002DB57D /* CoreGraphics.framework */; };
 		28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD733E0D9D9553002E5188 /* MainWindow.xib */; };
 		EE16114E13675C4D0059DE9B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE16114D13675C4D0059DE9B /* Icon@2x.png */; };
@@ -24,6 +25,7 @@
 		EE16118F1367622E0059DE9B /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = EE1611891367622E0059DE9B /* SBJsonParser.m */; };
 		EE1611901367622E0059DE9B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE16118B1367622E0059DE9B /* SBJsonWriter.m */; };
 		EE161193136762410059DE9B /* CLLevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE161192136762410059DE9B /* CLLevelManager.m */; };
+		EE708D2B136B7A1700B3344C /* CLObsCoin.m in Sources */ = {isa = PBXBuildFile; fileRef = EE708D2A136B7A1700B3344C /* CLObsCoin.m */; };
 		EED91EF31366062F00053011 /* CLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EF21366062F00053011 /* CLMainViewController.m */; };
 		EED91EFC136607B400053011 /* CLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EFB136607B400053011 /* CLPlayer.m */; };
 		EED91EFF136607BD00053011 /* CLFinish.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EFE136607BD00053011 /* CLFinish.m */; };
@@ -39,6 +41,8 @@
 		1D3623250D0F684500981E51 /* NomsAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NomsAppDelegate.m; sourceTree = "<group>"; };
 		1D6058910D05DD3D006BFB54 /* Noms.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Noms.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1F9CE32D136C598900C84255 /* MyWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyWindow.h; sourceTree = "<group>"; };
+		1F9CE32E136C598900C84255 /* MyWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyWindow.m; sourceTree = "<group>"; };
 		288765FC0DF74451002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28AD733E0D9D9553002E5188 /* MainWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 		EE16118B1367622E0059DE9B /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		EE161191136762410059DE9B /* CLLevelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLevelManager.h; sourceTree = "<group>"; };
 		EE161192136762410059DE9B /* CLLevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLevelManager.m; sourceTree = "<group>"; };
+		EE708D29136B7A1700B3344C /* CLObsCoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLObsCoin.h; sourceTree = "<group>"; };
+		EE708D2A136B7A1700B3344C /* CLObsCoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLObsCoin.m; sourceTree = "<group>"; };
 		EED91EF11366062F00053011 /* CLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMainViewController.h; sourceTree = "<group>"; };
 		EED91EF21366062F00053011 /* CLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMainViewController.m; sourceTree = "<group>"; };
 		EED91EFA136607B400053011 /* CLPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPlayer.h; sourceTree = "<group>"; };
@@ -109,6 +115,8 @@
 				EED91F061366098900053011 /* CLGameArea.h */,
 				EED91F071366098900053011 /* CLGameArea.m */,
 				EED91F03136607CE00053011 /* Objects */,
+				1F9CE32D136C598900C84255 /* MyWindow.h */,
+				1F9CE32E136C598900C84255 /* MyWindow.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -174,6 +182,8 @@
 				EE161157136760050059DE9B /* CLObsWall.m */,
 				EE161159136760100059DE9B /* CLObsEnemy.h */,
 				EE16115A136760100059DE9B /* CLObsEnemy.m */,
+				EE708D29136B7A1700B3344C /* CLObsCoin.h */,
+				EE708D2A136B7A1700B3344C /* CLObsCoin.m */,
 			);
 			name = Obs;
 			sourceTree = "<group>";
@@ -287,6 +297,8 @@
 				EE16118F1367622E0059DE9B /* SBJsonParser.m in Sources */,
 				EE1611901367622E0059DE9B /* SBJsonWriter.m in Sources */,
 				EE161193136762410059DE9B /* CLLevelManager.m in Sources */,
+				EE708D2B136B7A1700B3344C /* CLObsCoin.m in Sources */,
+				1F9CE32F136C598900C84255 /* MyWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

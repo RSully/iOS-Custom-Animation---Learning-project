@@ -10,7 +10,7 @@
 #include <time.h>
 
 #define PLAYER_SPEED 300
-#define ENEMY_SPEED 250
+#define ENEMY_SPEED 230
 
 #define PLAYER_SIZE 34
 #define ENEMY_SIZE 28

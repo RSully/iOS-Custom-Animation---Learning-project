@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "CLMainViewController.h"
+#import "MyWindow.h"
 
 @interface NomsAppDelegate : NSObject <UIApplicationDelegate> {
+    MyWindow *sbWindow;
     UIWindow *window;
 	CLMainViewController *mainVC;
 }

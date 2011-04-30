@@ -16,10 +16,15 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Make the statusbar window visible first
+    sbWindow = [[MyWindow alloc] init];
+    [sbWindow makeKeyAndVisible];
+    // Then add second window/content
     mainVC = [[CLMainViewController alloc] init];
 	[self.window addSubview:mainVC.view];
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
@@ -76,6 +81,7 @@
 
 
 - (void)dealloc {
+    [sbWindow release];
 	[mainVC release];
     [window release];
     [super dealloc];
