@@ -34,7 +34,6 @@
 		EE7A3F6A136CC6AA00C61F25 /* LoadGameButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7A3F68136CC6AA00C61F25 /* LoadGameButton@2x.png */; };
 		EE86012F136C7E2F00DF7170 /* PausedView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE86012E136C7E2F00DF7170 /* PausedView.m */; };
 		EE860132136CA02400DF7170 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE860131136CA02400DF7170 /* MenuView.m */; };
-		EE860136136CAD2700DF7170 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE860135136CAD2600DF7170 /* MenuButton.m */; };
 		EED91EF31366062F00053011 /* CLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EF21366062F00053011 /* CLMainViewController.m */; };
 		EED91EFC136607B400053011 /* CLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EFB136607B400053011 /* CLPlayer.m */; };
 		EED91EFF136607BD00053011 /* CLFinish.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EFE136607BD00053011 /* CLFinish.m */; };
@@ -89,8 +88,6 @@
 		EE86012E136C7E2F00DF7170 /* PausedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PausedView.m; sourceTree = "<group>"; };
 		EE860130136CA02300DF7170 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
 		EE860131136CA02400DF7170 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
-		EE860134136CAD2600DF7170 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuButton.h; sourceTree = "<group>"; };
-		EE860135136CAD2600DF7170 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuButton.m; sourceTree = "<group>"; };
 		EED91EF11366062F00053011 /* CLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMainViewController.h; sourceTree = "<group>"; };
 		EED91EF21366062F00053011 /* CLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMainViewController.m; sourceTree = "<group>"; };
 		EED91EFA136607B400053011 /* CLPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPlayer.h; sourceTree = "<group>"; };
@@ -265,8 +262,6 @@
 			children = (
 				EE860130136CA02300DF7170 /* MenuView.h */,
 				EE860131136CA02400DF7170 /* MenuView.m */,
-				EE860134136CAD2600DF7170 /* MenuButton.h */,
-				EE860135136CAD2600DF7170 /* MenuButton.m */,
 			);
 			name = Menu;
 			sourceTree = "<group>";
@@ -372,7 +367,6 @@
 				1F9CE32F136C598900C84255 /* MyWindow.m in Sources */,
 				EE86012F136C7E2F00DF7170 /* PausedView.m in Sources */,
 				EE860132136CA02400DF7170 /* MenuView.m in Sources */,
-				EE860136136CAD2700DF7170 /* MenuButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

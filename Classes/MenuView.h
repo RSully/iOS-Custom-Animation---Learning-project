@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "CLFunctions.h"
-#import "MenuButton.h"
 #import "CLObsEnemy.h"
 
 @interface MenuView : UIView {
