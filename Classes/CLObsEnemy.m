@@ -20,7 +20,7 @@
 		endPoint = ep;
 		direction = 0;
 		self.beginStart = [NSDate date];
-		self.backgroundColor = [UIColor orangeColor];
+		self.backgroundColor = ENEMY_COLOR;
 	}
 	return self;
 }

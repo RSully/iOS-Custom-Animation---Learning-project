@@ -1,18 +1,18 @@
 //
-//  CLObsWall.h
+//  MenuButton.h
 //  Noms
 //
-//  Created by Colby Ludwig on 11-04-26.
+//  Created by Colby Ludwig on 11-04-30.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-#import "CLObs.h"
 #import "CLFunctions.h"
 
-
-@interface CLObsWall : CLObs {
-
+@interface MenuButton : UIButton {
+    
 }
+
+-(void)setBtnImage:(UIImage*)bg;
 
 @end

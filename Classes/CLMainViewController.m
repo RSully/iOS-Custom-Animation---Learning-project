@@ -15,8 +15,10 @@
 	self = [super init];
 	if (self) {
 		lvlMgr = [[CLLevelManager alloc] init];
+        pauseMenu = [[PausedView alloc] initWithFrame:CGRectMake(0, 0, 320, 160)];
+        [pauseMenu setAlpha:0.0f];
+        
         [self loadWelcome];
-		[self loadLevel];
 		self.view.userInteractionEnabled = YES;
 	}
 	return self;
@@ -27,7 +29,34 @@
         [game removeFromSuperview];
         [game release], game = nil;
     }
+    if (mainMenu) {
+        if ([mainMenu superview] == nil) {
+            [self.view addSubview:mainMenu];
+        }
+    } else {
+        mainMenu = [[MenuView alloc] initWithFrame:self.view.bounds];
+        [self.view addSubview:mainMenu];
+    }
+    [mainMenu setVC:self];
 }
+-(void)unloadWelcome {
+    if (mainMenu) {
+        [mainMenu removeFromSuperview];
+        [mainMenu release], mainMenu = nil;
+    }
+}
+
+-(void)newGame {
+    [lvlMgr setLevel:0];
+    [lvlMgr setDeathAmount:0];
+    [self loadLevel];
+    [self unloadWelcome];
+}
+-(void)continueGame {
+    [self loadLevel];
+    [self unloadWelcome];
+}
+
 
 -(void)loadLevel {
 	if (game) {
@@ -35,6 +64,8 @@
 		[game release], game = nil;
 	}
 	NSUInteger level = [lvlMgr level];
+    [pauseMenu setLevel:level+1];
+    [pauseMenu setDeaths:[lvlMgr deathAmount]];
 	NSDictionary *jsonObj = [lvlMgr objectForLevel:level];
 	game = [[CLGameArea alloc] initWithFrame:CGRectMake(0, 0, 320, 460) level:jsonObj];
 	[game setVC:self];
@@ -57,7 +88,16 @@
 		[winning show];
 		[winning release];
 		
+        if ([pauseMenu superview] == nil) {
+            [pauseMenu setAlpha:0.0f];
+            [self.view addSubview:pauseMenu];
+        }
+        [UIView animateWithDuration:0.45 animations:^{
+            [pauseMenu setAlpha:1.0f]; 
+        }];
+        
 		[lvlMgr setLevel:0];
+        [lvlMgr setDeathAmount:0];
 	}
 }
 
@@ -68,15 +108,51 @@
 }
 */
 
+-(void)tryPause {
+    if (game) {
+        [game pause];
+        [self.view addSubview:pauseMenu];
+        [UIView animateWithDuration:0.45 animations:^{
+            [pauseMenu setAlpha:1.0f];
+        }];
+    }
+}
 
 -(void)statusBarTapped {
     if (game) {
-        if (game.paused) {
-            [game unpause];
+        if (game.won) {
+            if ([pauseMenu superview] == nil) {
+                [pauseMenu setAlpha:0.0f];
+                [self.view addSubview:pauseMenu];
+            }
+            [UIView animateWithDuration:0.45 animations:^{
+                [pauseMenu setAlpha:1.0f]; 
+            }];
+        } else if (game.paused) {
+            // HIDE 
+            [UIView animateWithDuration:0.45 animations:^{
+                [pauseMenu setAlpha:0.0f];
+            } completion:^(BOOL finished){
+                [pauseMenu removeFromSuperview];
+                [game unpause];
+            }];
         } else {
-            [game pause];
+           [game pause];
+            // SHOW
+            [self.view addSubview:pauseMenu];
+            [UIView animateWithDuration:0.45 animations:^{
+                [pauseMenu setAlpha:1.0f];
+            }];
         }
     }
+}
+-(void)incrementDeaths {
+    NSUInteger da = [lvlMgr deathAmount];
+    [lvlMgr setDeathAmount:da+1];
+    [pauseMenu setDeaths:[lvlMgr deathAmount]];
+}
+-(void)setNoms:(NSUInteger)got fromTotal:(NSUInteger)tot {
+    [pauseMenu setNoms:got fromTotal:tot];
 }
 
 

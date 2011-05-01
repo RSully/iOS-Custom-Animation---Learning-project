@@ -17,7 +17,7 @@
     self = [super initWithFrame:frame];
     if (self) {
 		self.clipsToBounds = YES;
-        self.backgroundColor = [UIColor redColor];
+        self.backgroundColor = PLAYER_COLOR_NORM;
     }
     return self;
 }

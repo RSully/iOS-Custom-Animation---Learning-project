@@ -188,6 +188,146 @@ $levels[] = array(
 						)
 					)
 			);
+$levels[] = array(
+				'start' => array(260, 318),
+				'end' => array(206, 376, 117, 92),
+				'obs' => array(
+						array(
+							// top
+							'type' => 'wall',
+							'rect' => array(0, 0, 320, 10)
+						),
+						array(
+							// left
+							'type' => 'wall',
+							'rect' => array(0, 0, 10, 460)
+						),
+						array(
+							// bottom
+							'type' => 'wall',
+							'rect' => array(0, 460-10, 320, 10)
+						),
+						array(
+							// right
+							'type' => 'wall',
+							'rect' => array(320-10, 0, 10, 376)
+						),
+						array(
+							'type' => 'wall',
+							'rect' => array(206, 376-10, 117, 10)
+						),
+						array(
+							'type' => 'wall',
+							'rect' => array(220, 293, 100, 10)
+						),
+						array(
+							'type' => 'wall',
+							'rect' => array(220, 170, 100, 10)
+						),
+						array(
+							'type' => 'wall',
+							'rect' => array(220, 148, 10, 26)
+						),
+						array(
+							'type' => 'wall',
+							'rect' => array(220, 268, 10, 28)
+						),
+						array(
+							'type' => 'enemy',
+							'start' => array(190, 130),
+							'end' => array(190, 32)
+						),
+						array(
+							'type' => 'enemy',
+							'start' => array(190, 274),
+							'end' => array(190, 194)
+						),
+						array(
+							'type' => 'coin',
+							'point' => array(272, 255)
+						),
+						array(
+							'type' => 'coin',
+							'point' => array(272, 130)
+						)
+					)
+				);
+$levels[] = array(
+			'start' => array(110+(320-220)/2-17, 460-40/2-18),
+			'end' => array(110, 0, 320-220, 40),
+			'obs' => array(
+					array(
+						// topleft block
+						'type' => 'wall',
+						'rect' => array(0, 0, 110, 40)
+					),
+					array(
+						// topright block
+						'type' => 'wall',
+						'rect' => array(320-110, 0, 110, 40)
+					),
+					array(
+						// bottomleft block
+						'type' => 'wall',
+						'rect' => array(0, 460-40, 110, 40)
+					),
+					array(
+						// bottomright block
+						'type' => 'wall',
+						'rect' => array(320-110, 460-40, 110, 40)
+					),
+					array(
+						// left wall
+						'type' => 'wall',
+						'rect' => array(0, 0, 10, 460)
+					),
+					array(
+						// right wall
+						'type' => 'wall',
+						'rect' => array(320-10, 0, 10, 460)
+					),
+					array(
+						'type' => 'coin',
+						'point' => array(56, 76*2)
+					),
+					array(
+						'type' => 'coin',
+						'point' => array(320-56, 76*3)
+					),
+					array(
+						'type' => 'coin',
+						'point' => array(56, 76*4)
+					),
+					array(
+						'type' => 'enemy',
+						'start' => array(56,76),
+						'end' => array(320-56,76)
+					),
+					array(
+						'type' => 'enemy',
+						'start' => array(320-56,76*2),
+						'end' => array(56,76*2)
+					),
+					array(
+						'type' => 'enemy',
+						'start' => array(56,76*3),
+						'end' => array(320-56,76*3)
+					),
+					array(
+						'type' => 'enemy',
+						'start' => array(320-56,76*4),
+						'end' => array(56, 76*4)
+					),
+					array(
+						'type' => 'enemy',
+						'start' => array(56,76*5),
+						'end' => array(320-56,76*5)
+					)
+			)
+);
+
+
+//print_r($levels);
 // $levels[] = array(
 // 				'start' => array(24, 460-(10+14+34)),
 // 				'end' => array(170, 10, 160, 84),

@@ -11,6 +11,7 @@
 
 @interface CLLevelManager : NSObject {
 	NSNumber *level;
+    NSNumber *deathAmount;
 	NSArray *levels;
 }
 
@@ -22,5 +23,9 @@
 -(void)setLevel:(NSUInteger)newLevel;
 -(NSUInteger)level;
 -(NSNumber*)levelObj;
+
+-(void)setDeathAmount:(NSUInteger)newDeathAmount;
+-(NSUInteger)deathAmount;
+-(NSNumber*)deathAmountObj;
 
 @end

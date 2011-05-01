@@ -16,7 +16,7 @@
 	self = [super initWithFrame:CGRectMake(p.x-(COIN_SIZE/2), p.y-(COIN_SIZE/2), COIN_SIZE, COIN_SIZE)];
 	if (self) {
 		didGet = NO;
-		self.backgroundColor = [UIColor yellowColor];
+		self.backgroundColor = COIN_COLOR;
 	}
 	return self;
 }

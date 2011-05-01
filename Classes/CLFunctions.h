@@ -23,6 +23,17 @@
 #define ObsLeft @"kobs-left"
 #define ObsRight @"kobs-right"
 
+// Colors
+#define BG_COLOR_NORM [UIColor colorWithRed:(26.0f/255.0f) green:(26.0f/255.0f) blue:(26.0f/255.0f) alpha:1.0f]
+#define BG_COLOR_FADE [UIColor colorWithRed:(53.0f/255.0f) green:(53.0f/255.0f) blue:(53.0f/255.0f) alpha:1.0f]
+#define PLAYER_COLOR_NORM [UIColor colorWithRed:(218.0f/255.0f) green:0.0f blue:0.0f alpha:1.0f]
+#define PLAYER_COLOR_FADE [UIColor colorWithRed:(41.0f/255.0f) green:(40.0f/255.0f) blue:(40.0f/255.0f) alpha:1.0f]
+#define COIN_COLOR [UIColor colorWithRed:0.0f green:(228.0f/225.0f) blue:(21.0f/255.0f) alpha:1.0f]
+#define ENEMY_COLOR [UIColor colorWithRed:(217.0f/255.0f) green:(40.0f/255.0f) blue:1.0f alpha:1.0f]
+#define WALL_COLOR [UIColor colorWithRed:(99.0f/255.0f) green:(99.0f/255.0f) blue:(99.0f/255.0f) alpha:1.0f]
+#define FINISH_COLOR [UIColor colorWithRed:0.0f green:(192.0f/255.0f) blue:1.0f alpha:1.0f]
+#define BUTTON_COLOR [UIColor colorWithRed:(53.0f/255.0f) green:(53.0f/255.0f) blue:(53.0f/255.0f) alpha:1.0f]
+
 ObsPosition* RelPositionOfPlayer(CGRect player, CGRect obs);
 
 CGFloat SlopeBetweenTwoPoints(CGPoint p1, CGPoint p2);

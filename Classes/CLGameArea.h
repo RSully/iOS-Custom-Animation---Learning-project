@@ -28,6 +28,8 @@
 	NSTimer *refresher;
 	UIViewController *vc;
     
+    BOOL won;
+    NSUInteger gotAmount;
     BOOL paused;
     NSDate *pausedWhen;
 }
@@ -53,5 +55,6 @@
 
 @property (nonatomic, retain) NSDate *pausedWhen;
 @property (nonatomic, assign) BOOL paused;
+@property (nonatomic, assign) BOOL won;
 
 @end

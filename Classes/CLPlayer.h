@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CLFunctions.h"
 
 
 @interface CLPlayer : UIView {

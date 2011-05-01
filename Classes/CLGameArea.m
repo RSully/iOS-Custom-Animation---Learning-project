@@ -12,20 +12,22 @@
 
 
 @implementation CLGameArea
-@synthesize paused, pausedWhen;
+@synthesize paused, pausedWhen, won;
 
 - (id)initWithFrame:(CGRect)frame level:(NSDictionary*)lvl {
     self = [super initWithFrame:frame];
     if (self) {
 		self.userInteractionEnabled = YES;
 		self.clipsToBounds = YES;
-		self.backgroundColor = [UIColor greenColor];
+		self.backgroundColor = BG_COLOR_NORM;
 		
 		refresher = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(didTick:) userInfo:nil repeats:YES];
 		walls = [[NSMutableArray alloc] init];
 		enemies = [[NSMutableArray alloc] init];
 		coins = [[NSMutableArray alloc] init];
 		
+        gotAmount = 0;
+        self.won = NO;
         self.paused = NO;
 		[self loadLevel:lvl];
 		
@@ -37,7 +39,6 @@
 }
 
 -(void)loadLevel:(NSDictionary*)lvl {
-	NSLog(@"Loading level: %@", lvl);
 	
 	// start, end, obs
 	NSArray *startInfo = [lvl objectForKey:@"start"];
@@ -70,6 +71,12 @@
 			
 			obj = [[CLObsWall alloc] initWithFrame:rec];
 			[walls addObject:obj];
+        } else if ([type isEqualToString:@"coin"]) {
+			NSArray *poss = [obs objectForKey:@"point"];
+			CGPoint startP = CGPointMake([[poss objectAtIndex:0] floatValue], 
+										 [[poss objectAtIndex:1] floatValue]);
+			obj = [[CLObsCoin alloc] initWithPoint:startP];
+			[coins addObject:obj];
 		} else if ([type isEqualToString:@"enemy"]) {
 			NSArray *starts = [obs objectForKey:@"start"];
 			NSArray *ends = [obs objectForKey:@"end"];
@@ -80,13 +87,7 @@
 			
 			obj = [[CLObsEnemy alloc] initWithStart:startP end:endP];
 			[enemies addObject:obj];
-		} else if ([type isEqualToString:@"coin"]) {
-			NSArray *poss = [obs objectForKey:@"point"];
-			CGPoint startP = CGPointMake([[poss objectAtIndex:0] floatValue], 
-										 [[poss objectAtIndex:1] floatValue]);
-			obj = [[CLObsCoin alloc] initWithPoint:startP];
-			[coins addObject:obj];
-		}
+        }
 		[self addSubview:obj];
 		[obj release];
 	}
@@ -208,9 +209,13 @@
 }
 -(void)checkPlayerCoins {
 	for (CLObsCoin *coin in coins) {
-		if (coin.didGet == YES) { continue; }
+		if (coin.didGet == YES) {
+            continue;
+        }
 		
 		if (CGRectIntersectsRect(me.frame, coin.frame)) {
+            gotAmount++;
+            [(CLMainViewController*)vc setNoms:gotAmount fromTotal:[coins count]];
 			coin.didGet = YES;
 			[coin removeFromSuperview];
 		}
@@ -251,17 +256,22 @@
 
 
 -(void)didWin {
-	[refresher invalidate];
+    self.won = YES;
+	[refresher invalidate], refresher = nil;
 	[(CLMainViewController*)vc nextLevel];
 }
 -(void)didGetOwned {
-	[refresher invalidate];
+	[refresher invalidate], refresher = nil;
+    [(CLMainViewController*)vc incrementDeaths];
 	
 	[UIView animateWithDuration:0.4 animations:^{
-		me.backgroundColor = [UIColor blackColor];
-		self.backgroundColor = [UIColor colorWithRed:0.0f green:(230.0f/255.0f) blue:0.0f alpha:1.0];
+		me.backgroundColor = PLAYER_COLOR_FADE;
+		self.backgroundColor = BG_COLOR_FADE;
 	} completion:^(BOOL finished) {
-		
+        
+		gotAmount = 0;
+        [(CLMainViewController*) vc setNoms:gotAmount fromTotal:[coins count]];
+        
 		for (CLObsCoin *coin in coins) {
 			coin.didGet = NO;
 			[coin removeFromSuperview];
@@ -273,11 +283,11 @@
 		
 		[UIView animateWithDuration:0.65 animations:^{
 			me.frame = initPlayerFrame;
-			self.backgroundColor = [UIColor greenColor];
+			self.backgroundColor = BG_COLOR_NORM;
 		} completion:^(BOOL finished) {
 			me.lastPoint = me.center;
 			me.beginPoint = me.center;
-			me.backgroundColor = [UIColor redColor];
+			me.backgroundColor = PLAYER_COLOR_NORM;
 			
 			CGFloat timeSub = (.65 + .4);
 			for (CLObsEnemy *enemy in enemies) {
@@ -289,23 +299,25 @@
 	}];
 }
 
--(void)setVC:(UIViewController*)newvc { vc = newvc; }
+-(void)setVC:(UIViewController*)newvc {
+    vc = newvc;
+    [(CLMainViewController*)vc setNoms:gotAmount fromTotal:[coins count]];
+}
 
 -(void)pause {
     if (refresher) {
         self.pausedWhen = [NSDate date];
-        [refresher invalidate];
-        refresher = nil;
+        [refresher invalidate], refresher = nil;
     }
     self.paused = YES;
     [UIView animateWithDuration:0.4 animations:^{
-        self.backgroundColor = [UIColor colorWithRed:0.0f green:(230.0f/255.0f) blue:0.0f alpha:1.0];
+        self.backgroundColor = BG_COLOR_FADE;
     }];
 }
 -(void)unpause {
     if (refresher) { return; }
     [UIView animateWithDuration:0.4 animations:^{
-        self.backgroundColor = [UIColor greenColor];
+        self.backgroundColor = BG_COLOR_NORM;
     } completion:^(BOOL finished) {
         
         CGFloat tDiff = -[self.pausedWhen timeIntervalSinceNow];

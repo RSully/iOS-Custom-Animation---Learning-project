@@ -26,6 +26,15 @@
 		EE1611901367622E0059DE9B /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = EE16118B1367622E0059DE9B /* SBJsonWriter.m */; };
 		EE161193136762410059DE9B /* CLLevelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EE161192136762410059DE9B /* CLLevelManager.m */; };
 		EE708D2B136B7A1700B3344C /* CLObsCoin.m in Sources */ = {isa = PBXBuildFile; fileRef = EE708D2A136B7A1700B3344C /* CLObsCoin.m */; };
+		EE7A3F61136CC31300C61F25 /* NewGameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7A3F5B136CC31300C61F25 /* NewGameButton.png */; };
+		EE7A3F64136CC31300C61F25 /* NewGameButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7A3F5E136CC31300C61F25 /* NewGameButton@2x.png */; };
+		EE7A3F65136CC31300C61F25 /* InstructionsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7A3F5F136CC31300C61F25 /* InstructionsButton.png */; };
+		EE7A3F66136CC31300C61F25 /* InstructionsButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7A3F60136CC31300C61F25 /* InstructionsButton@2x.png */; };
+		EE7A3F69136CC6AA00C61F25 /* LoadGameButton.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7A3F67136CC6AA00C61F25 /* LoadGameButton.png */; };
+		EE7A3F6A136CC6AA00C61F25 /* LoadGameButton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EE7A3F68136CC6AA00C61F25 /* LoadGameButton@2x.png */; };
+		EE86012F136C7E2F00DF7170 /* PausedView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE86012E136C7E2F00DF7170 /* PausedView.m */; };
+		EE860132136CA02400DF7170 /* MenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = EE860131136CA02400DF7170 /* MenuView.m */; };
+		EE860136136CAD2700DF7170 /* MenuButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EE860135136CAD2600DF7170 /* MenuButton.m */; };
 		EED91EF31366062F00053011 /* CLMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EF21366062F00053011 /* CLMainViewController.m */; };
 		EED91EFC136607B400053011 /* CLPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EFB136607B400053011 /* CLPlayer.m */; };
 		EED91EFF136607BD00053011 /* CLFinish.m in Sources */ = {isa = PBXBuildFile; fileRef = EED91EFE136607BD00053011 /* CLFinish.m */; };
@@ -70,6 +79,18 @@
 		EE161192136762410059DE9B /* CLLevelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLLevelManager.m; sourceTree = "<group>"; };
 		EE708D29136B7A1700B3344C /* CLObsCoin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLObsCoin.h; sourceTree = "<group>"; };
 		EE708D2A136B7A1700B3344C /* CLObsCoin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLObsCoin.m; sourceTree = "<group>"; };
+		EE7A3F5B136CC31300C61F25 /* NewGameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NewGameButton.png; sourceTree = "<group>"; };
+		EE7A3F5E136CC31300C61F25 /* NewGameButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NewGameButton@2x.png"; sourceTree = "<group>"; };
+		EE7A3F5F136CC31300C61F25 /* InstructionsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = InstructionsButton.png; sourceTree = "<group>"; };
+		EE7A3F60136CC31300C61F25 /* InstructionsButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InstructionsButton@2x.png"; sourceTree = "<group>"; };
+		EE7A3F67136CC6AA00C61F25 /* LoadGameButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LoadGameButton.png; sourceTree = "<group>"; };
+		EE7A3F68136CC6AA00C61F25 /* LoadGameButton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LoadGameButton@2x.png"; sourceTree = "<group>"; };
+		EE86012D136C7E2F00DF7170 /* PausedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PausedView.h; sourceTree = "<group>"; };
+		EE86012E136C7E2F00DF7170 /* PausedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PausedView.m; sourceTree = "<group>"; };
+		EE860130136CA02300DF7170 /* MenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuView.h; sourceTree = "<group>"; };
+		EE860131136CA02400DF7170 /* MenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuView.m; sourceTree = "<group>"; };
+		EE860134136CAD2600DF7170 /* MenuButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuButton.h; sourceTree = "<group>"; };
+		EE860135136CAD2600DF7170 /* MenuButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuButton.m; sourceTree = "<group>"; };
 		EED91EF11366062F00053011 /* CLMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLMainViewController.h; sourceTree = "<group>"; };
 		EED91EF21366062F00053011 /* CLMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLMainViewController.m; sourceTree = "<group>"; };
 		EED91EFA136607B400053011 /* CLPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLPlayer.h; sourceTree = "<group>"; };
@@ -110,11 +131,9 @@
 				EED91FB61366126500053011 /* CLFunctions.m */,
 				EED91EF11366062F00053011 /* CLMainViewController.h */,
 				EED91EF21366062F00053011 /* CLMainViewController.m */,
-				EE161191136762410059DE9B /* CLLevelManager.h */,
-				EE161192136762410059DE9B /* CLLevelManager.m */,
-				EED91F061366098900053011 /* CLGameArea.h */,
-				EED91F071366098900053011 /* CLGameArea.m */,
-				EED91F03136607CE00053011 /* Objects */,
+				EE860133136CA02900DF7170 /* Menu */,
+				EE86012C136C7DE300DF7170 /* Paused */,
+				EE86012B136C7DD400DF7170 /* Game */,
 				1F9CE32D136C598900C84255 /* MyWindow.h */,
 				1F9CE32E136C598900C84255 /* MyWindow.m */,
 			);
@@ -153,6 +172,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EE7A3F5A136CC30300C61F25 /* Buttons */,
 				EE161177136761E20059DE9B /* levels.txt */,
 				EE16114F13675C740059DE9B /* Icon.png */,
 				EE16114D13675C4D0059DE9B /* Icon@2x.png */,
@@ -204,6 +224,51 @@
 				EE16118B1367622E0059DE9B /* SBJsonWriter.m */,
 			);
 			name = JSON;
+			sourceTree = "<group>";
+		};
+		EE7A3F5A136CC30300C61F25 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				EE7A3F67136CC6AA00C61F25 /* LoadGameButton.png */,
+				EE7A3F68136CC6AA00C61F25 /* LoadGameButton@2x.png */,
+				EE7A3F5B136CC31300C61F25 /* NewGameButton.png */,
+				EE7A3F5E136CC31300C61F25 /* NewGameButton@2x.png */,
+				EE7A3F5F136CC31300C61F25 /* InstructionsButton.png */,
+				EE7A3F60136CC31300C61F25 /* InstructionsButton@2x.png */,
+			);
+			name = Buttons;
+			sourceTree = "<group>";
+		};
+		EE86012B136C7DD400DF7170 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				EE161191136762410059DE9B /* CLLevelManager.h */,
+				EE161192136762410059DE9B /* CLLevelManager.m */,
+				EED91F061366098900053011 /* CLGameArea.h */,
+				EED91F071366098900053011 /* CLGameArea.m */,
+				EED91F03136607CE00053011 /* Objects */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
+		EE86012C136C7DE300DF7170 /* Paused */ = {
+			isa = PBXGroup;
+			children = (
+				EE86012D136C7E2F00DF7170 /* PausedView.h */,
+				EE86012E136C7E2F00DF7170 /* PausedView.m */,
+			);
+			name = Paused;
+			sourceTree = "<group>";
+		};
+		EE860133136CA02900DF7170 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EE860130136CA02300DF7170 /* MenuView.h */,
+				EE860131136CA02400DF7170 /* MenuView.m */,
+				EE860134136CAD2600DF7170 /* MenuButton.h */,
+				EE860135136CAD2600DF7170 /* MenuButton.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 		EED91F03136607CE00053011 /* Objects */ = {
@@ -271,6 +336,12 @@
 				EE16114E13675C4D0059DE9B /* Icon@2x.png in Resources */,
 				EE16115013675C740059DE9B /* Icon.png in Resources */,
 				EE161178136761E20059DE9B /* levels.txt in Resources */,
+				EE7A3F61136CC31300C61F25 /* NewGameButton.png in Resources */,
+				EE7A3F64136CC31300C61F25 /* NewGameButton@2x.png in Resources */,
+				EE7A3F65136CC31300C61F25 /* InstructionsButton.png in Resources */,
+				EE7A3F66136CC31300C61F25 /* InstructionsButton@2x.png in Resources */,
+				EE7A3F69136CC6AA00C61F25 /* LoadGameButton.png in Resources */,
+				EE7A3F6A136CC6AA00C61F25 /* LoadGameButton@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +370,9 @@
 				EE161193136762410059DE9B /* CLLevelManager.m in Sources */,
 				EE708D2B136B7A1700B3344C /* CLObsCoin.m in Sources */,
 				1F9CE32F136C598900C84255 /* MyWindow.m in Sources */,
+				EE86012F136C7E2F00DF7170 /* PausedView.m in Sources */,
+				EE860132136CA02400DF7170 /* MenuView.m in Sources */,
+				EE860136136CAD2700DF7170 /* MenuButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
