@@ -288,44 +288,189 @@ $levels[] = array(
 					),
 					array(
 						'type' => 'coin',
-						'point' => array(56, 76*2)
+						'point' => array(58, 76*2)
 					),
 					array(
 						'type' => 'coin',
-						'point' => array(320-56, 76*3)
+						'point' => array(320-58, 76*3)
 					),
 					array(
 						'type' => 'coin',
-						'point' => array(56, 76*4)
+						'point' => array(58, 76*4)
 					),
 					array(
 						'type' => 'enemy',
-						'start' => array(56,76),
-						'end' => array(320-56,76)
+						'start' => array(55,76),
+						'end' => array(320-55,76)
 					),
 					array(
 						'type' => 'enemy',
-						'start' => array(320-56,76*2),
-						'end' => array(56,76*2)
+						'start' => array(320-55,76*2),
+						'end' => array(55,76*2)
 					),
 					array(
 						'type' => 'enemy',
-						'start' => array(56,76*3),
-						'end' => array(320-56,76*3)
+						'start' => array(55,76*3),
+						'end' => array(320-55,76*3)
 					),
 					array(
 						'type' => 'enemy',
-						'start' => array(320-56,76*4),
-						'end' => array(56, 76*4)
+						'start' => array(320-55,76*4),
+						'end' => array(55, 76*4)
 					),
 					array(
 						'type' => 'enemy',
-						'start' => array(56,76*5),
-						'end' => array(320-56,76*5)
+						'start' => array(55,76*5),
+						'end' => array(320-55,76*5)
 					)
 			)
 );
-
+$levels[] = array(
+	// 5, 77, 78, 78, 77, 5 			l->r
+	// 5, 75, 75, 75, 75, 75, 75, 5		t->b
+	'start' => array(18, 400),
+	'end' => array(5, 5, 77, 75),
+	'obs' => array(
+		array(
+			'type' => 'wall',
+			'rect' => array(0, 0, 320, 5)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(0, 0, 5, 460)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(0, 460-5, 320, 5)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(77, 0, 5, 310)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(238, 82, 5, 303)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(320-5, 0, 5, 460)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(160, 82, 78, 5)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(0, 380, 238, 5)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(160, 230, 78, 5)
+		),
+		array(
+			'type' => 'wall',
+			'rect' => array(82, 158, 78, 5)
+		),
+		array(
+			'type' => 'enemy',
+			'start' => array(301, 368),
+			'end' => array(301, 106)
+		),
+		array(
+			'type' => 'enemy',
+			'start' => array(257, 106),
+			'end' => array(257, 368)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(278, 230)
+		),
+		array(// 5,82 73x230
+			'type' => 'coin',
+			'point' => array(23, 103)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(23, 141)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(23, 179)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(23, 218)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(23, 256)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(23, 294)
+		),
+		array(// 5,82 73x230
+			'type' => 'coin',
+			'point' => array(60, 103)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(60, 141)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(60, 179)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(60, 218)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(60, 256)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(60, 294)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(199, 118)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(199, 192)
+		),
+		array(
+			'type' => 'enemy',
+			'start' => array(100, 182),
+			'end' => array(100, 360)
+		),
+		array(
+			'type' => 'enemy',
+			'start' => array(140, 360),
+			'end' => array(140, 182)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(199, 273)
+		),
+		array(
+			'type' => 'coin',
+			'point' => array(199, 345)
+		),
+		array(
+			'type' => 'enemy',
+			'start' => array(100, 23),
+			'end' => array(296, 23)
+		),
+		array(
+			'type' => 'enemy',
+			'start' => array(296, 61),
+			'end' => array(100, 61)
+		)
+	)
+);
 
 //print_r($levels);
 // $levels[] = array(
@@ -340,4 +485,6 @@ $levels[] = array(
 $output = json_encode($levels);
 file_put_contents('levels.txt', $output);
 echo $output;
+echo "\n\n";
+echo count($levels);
 ?>
