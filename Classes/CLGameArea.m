@@ -21,7 +21,7 @@
 		self.clipsToBounds = YES;
 		self.backgroundColor = BG_COLOR_NORM;
 		
-		refresher = [NSTimer scheduledTimerWithTimeInterval:0.01 target:self selector:@selector(didTick:) userInfo:nil repeats:YES];
+		refresher = [NSTimer scheduledTimerWithTimeInterval:0.02 target:self selector:@selector(didTick:) userInfo:nil repeats:YES];
 		walls = [[NSMutableArray alloc] init];
 		enemies = [[NSMutableArray alloc] init];
 		coins = [[NSMutableArray alloc] init];
@@ -91,6 +91,13 @@
 		[self addSubview:obj];
 		[obj release];
 	}
+    
+    for (CLObsEnemy *enemy in enemies) {
+        [self bringSubviewToFront:enemy];
+    }
+    for (CLObsWall *wall in walls) {
+        [self bringSubviewToFront:wall];
+    }
 }	
 
 
@@ -277,7 +284,13 @@
 			[coin removeFromSuperview];
 			[self addSubview:coin];
 		}
-		
+		for (CLObsEnemy *enemy in enemies) {
+            [self bringSubviewToFront:enemy];
+        }
+        for (CLObsWall *wall in walls) {
+            [self bringSubviewToFront:wall];
+        }
+        
 		me.lastFrame = CGRectZero;
 		me.gotoPoint = CGPointZero;
 		
